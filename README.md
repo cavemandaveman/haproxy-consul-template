@@ -1,5 +1,5 @@
 # haproxy-consul-template
-Alpine docker container hosting HAProxy with dynamic config updating through consul-template
+Alpine docker container hosting HAProxy with dynamic config updating through consul-template with process supervision using s6
 
 ## About this image
 
