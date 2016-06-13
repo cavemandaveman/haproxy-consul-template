@@ -1,3 +1,5 @@
 #!/bin/sh
 
-/usr/local/bin/consul-template -config /consul-template/config.d -once || exit 1
+/bin/ln -s /var/run/s6/services/haproxy1 /haproxy-current
+/bin/ln -s /var/run/s6/services/haproxy2 /haproxy-alt
+/usr/local/bin/consul-template -config /consul-template/config.d -once
