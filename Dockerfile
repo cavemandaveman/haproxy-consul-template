@@ -2,8 +2,8 @@ FROM alpine:3.4
 
 MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
 
-ENV S6_VERSION="v1.17.2.0" \
-    CONSUL_TEMPLATE_VERSION="0.14.0"
+ENV S6_VERSION="v1.18.0.0" \
+    CONSUL_TEMPLATE_VERSION="0.15.0"
 
 RUN apk --no-cache add openssl \
     haproxy \
