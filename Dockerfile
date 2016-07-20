@@ -10,7 +10,7 @@ RUN apk --no-cache add openssl \
     && wget -qO - "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-amd64.tar.gz" \
     | tar -zxC / \
     && wget -qO "/consul-template.zip" "https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip" \
-    && unzip -qd "/usr/local/bin/" "/consul-template.zip" \
+    && unzip -qd "/bin/" "/consul-template.zip" \
     && rm "/consul-template.zip" \
     && apk del openssl
 
