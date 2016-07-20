@@ -25,7 +25,7 @@ You must include the following `destination=` and `command=` in the `template{}`
 ```javascript
 template {
   destination = "/etc/haproxy/haproxy.cfg"
-  command = "sh /restart-haproxy.sh"
+  command = "restart-haproxy"
 }
 ```
 #### What does the the restart script do?
