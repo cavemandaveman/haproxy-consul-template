@@ -14,13 +14,25 @@ This creates a small container with [s6] supervisor running and monitoring HAPro
 You can [read] more [about] s6 [here].
 
 ## How to use this image
-
-Run the container with a bind mount on the directory that has your consul-template configuration:
+If you have good directory as such:
 ```
-docker run -d -v /path/to/consul-template/config/:/consul-template/config.d/ clearent/haproxy-consul-template:latest
+consul-template
+│
+└───config.d
+│   └── consul-template.conf
+│   
+└───templates
+    └── haproxy.ctmpl
 ```
+Then all you need to do is run the container with a bind mount on the consul-template directory:
+```
+docker run -d -v /path/to/consul-template/:/consul-template/ clearent/haproxy-consul-template:latest
+```
+Otherwise, you need a separate bind mount argument for your consul-template config and template files. However, the config _must always_ live at `/consul-template/config.d` inside the container.
 
-You must include the following `destination=` and `command=` in the `template{}` block of your config file in order to propery reload the HAProxy configuration:
+Also in the `docker run` command, include either as many `-p port:port` args as bind ports you have defined, or use `--net=host`. The former is recommended and is more secure.
+
+In your `consul-template.conf`, you must include the following `destination=` and `command=` values in the `template{}` block in order to properly reload the HAProxy configuration:
 
 ```javascript
 template {
