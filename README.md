@@ -14,7 +14,7 @@ This creates a small container with [s6] supervisor running and monitoring HAPro
 You can [read] more [about] s6 [here].
 
 ## How to use this image
-If you have good directory as such:
+If you have good directory structure as such:
 ```
 consul-template
 │
@@ -24,7 +24,7 @@ consul-template
 └───templates
     └── haproxy.ctmpl
 ```
-Then all you need to do is run the container with a bind mount on the consul-template directory:
+then all you need to do is run the container with a bind mount on the consul-template directory:
 ```
 docker run -d -v /path/to/consul-template/:/consul-template/ clearent/haproxy-consul-template:latest
 ```
