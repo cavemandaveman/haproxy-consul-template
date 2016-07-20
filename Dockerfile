@@ -23,8 +23,7 @@ RUN set -x \
     && rm -rf "${GNUPGHOME}" "${WGETHOME}" \
     && apk del .install-deps
 
-COPY services.d/ /etc/services.d/
-COPY 00-init-consul-template.sh /etc/cont-init.d/
-COPY restart-haproxy.sh /restart-haproxy.sh
+COPY etc/ /etc/
+COPY bin/ /bin/
 
 ENTRYPOINT ["/init"]
