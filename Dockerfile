@@ -11,11 +11,10 @@ RUN apk --no-cache add openssl \
     | tar -zxC / \
     && wget -qO "/consul-template.zip" "https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip" \
     && unzip -qd "/usr/local/bin/" "/consul-template.zip" \
-    && rm "/consul-template.zip"
+    && rm "/consul-template.zip" \
+    && apk del openssl
 
-COPY haproxy1/ /etc/services.d/haproxy1/
-COPY haproxy2/ /etc/services.d/haproxy2/
-COPY consul-template/ /etc/services.d/consul-template/
+COPY services.d/ /etc/services.d/
 COPY 00-init-consul-template.sh /etc/cont-init.d/
 COPY restart-haproxy.sh /restart-haproxy.sh
 
