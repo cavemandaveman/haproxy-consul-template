@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
+MAINTAINER cavemandaveman <cavemandaveman@protonmail.com>
 
 ENV S6_VERSION="v1.18.0.0" \
     CONSUL_TEMPLATE_VERSION="0.15.0" \
