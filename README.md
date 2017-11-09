@@ -26,7 +26,7 @@ consul-template
 ```
 then all you need to do is run the container with a bind mount on the consul-template directory:
 ```
-docker run -d -v /path/to/consul-template/:/consul-template/ clearent/haproxy-consul-template:latest
+docker run -d -v /path/to/consul-template/:/consul-template/ cavemandaveman/haproxy-consul-template:latest
 ```
 Otherwise, you need a separate bind mount argument for your consul-template config and template files. However, the config _must always_ live at `/consul-template/config.d` inside the container.
 
